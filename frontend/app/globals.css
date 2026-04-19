@@ -1,0 +1,328 @@
+/* ============================================================
+   RAYSO.STUDIO — MAISON ÉLARA RESTAURANT TEMPLATE
+   globals.css — Tailwind v4 — Single source of truth
+   
+   HOW TO CUSTOMISE
+   ─────────────────
+   Fonts  → swap @import URL + --font-display / --font-body
+   Colors → edit the @theme block below
+   Everything in the template reads from these tokens.
+   No tailwind.config.ts needed in v4.
+   ============================================================ */
+
+/* ── 1. Google Fonts ──────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap');
+
+/* ── 2. Tailwind v4 ───────────────────────────────────────── */
+@import "tailwindcss";
+
+/* ── 3. Design Tokens via @theme ─────────────────────────── */
+/*
+  In Tailwind v4, @theme replaces tailwind.config.ts entirely.
+  Every token here becomes a utility class automatically:
+  --color-brand → bg-brand, text-brand, border-brand
+  --font-display → font-display
+  --spacing-18   → p-18, m-18, gap-18, etc.
+*/
+@theme {
+
+  /* ── Fonts ──────────────────────────────────────────────── */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'DM Sans', system-ui, sans-serif;
+
+  /* ── Brand Colors ───────────────────────────────────────── */
+  --color-brand:         #C8A97E;
+  --color-brand-light:   #E2CCAA;
+  --color-brand-dark:    #9A7A56;
+
+  /* ── Stone Neutrals (warm near-blacks + off-whites) ─────── */
+  --color-stone-950:     #0A0A08;
+  --color-stone-900:     #141412;
+  --color-stone-850:     #1C1C1A;
+  --color-stone-800:     #2A2A26;
+  --color-stone-700:     #3A3A34;
+  --color-stone-500:     #4A4A44;
+  --color-stone-400:     #6A6A62;
+  --color-stone-300:     #8A8A80;
+  --color-stone-200:     #C4C4BC;
+  --color-stone-100:     #E8E6E0;
+  --color-stone-50: #F5F3EE;
+  --color-stone-25: #FEFDFB;
+  --color-stone-400: #dfd7c9;
+
+  /* ── Surface Aliases ────────────────────────────────────── */
+  --color-surface-dark:  #0F4729;
+  --color-surface-card:  #1E1E1C;
+  --color-surface-warm:  #F5F0E8;
+
+  /* ── Font Sizes ─────────────────────────────────────────── */
+  --font-size-2xs:  0.65rem;
+
+  /* ── Letter Spacing ─────────────────────────────────────── */
+  --tracking-widest2: 0.2em;
+
+  /* ── Extra Spacing ──────────────────────────────────────── */
+  --spacing-18:  4.5rem;
+  --spacing-22:  5.5rem;
+  --spacing-26:  6.5rem;
+  --spacing-30:  7.5rem;
+  --spacing-34:  8.5rem;
+  --spacing-38:  9.5rem;
+  --spacing-42:  10.5rem;
+  --spacing-128: 32rem;
+
+  /* ── Max Widths ─────────────────────────────────────────── */
+  --container-8xl: 88rem;
+  --container-9xl: 96rem;
+
+  /* ── Border Radius ──────────────────────────────────────── */
+  --radius-4xl: 2rem;
+
+  /* ── Box Shadows ────────────────────────────────────────── */
+  --shadow-brand:   0 8px 32px rgba(200, 169, 126, 0.25);
+  --shadow-xl-warm: 0 24px 64px rgba(0,0,0,0.18), 0 8px 20px rgba(0,0,0,0.08);
+
+  /* ── Keyframe Animations ────────────────────────────────── */
+  --animate-fade-in-up:  fadeInUp 0.7s cubic-bezier(0,0,0.2,1) both;
+  --animate-fade-in:     fadeIn 0.5s ease both;
+  --animate-scroll-pulse:scrollPulse 2s ease-in-out infinite;
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; transform: scaleY(1); }
+    50%       { opacity: 1;   transform: scaleY(1.1); }
+  }
+}
+
+/* ── 4. Base Styles ──────────────────────────────────────── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--color-stone-950);
+    background-color: var(--color-stone-25);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 300;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+
+  ::selection {
+    background-color: var(--color-brand);
+    color: var(--color-stone-950);
+  }
+
+  ::-webkit-scrollbar        { width: 5px; }
+  ::-webkit-scrollbar-track  { background-color: var(--color-stone-50); }
+  ::-webkit-scrollbar-thumb  { background-color: var(--color-brand); border-radius: 9999px; }
+}
+
+/* ── 5. Component Utilities ──────────────────────────────── */
+@layer components {
+
+  /* ── Layout ───────────────────────────────────────────── */
+  .site-container {
+    width: 100%;
+    max-width: 96rem;
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 5vw, 5rem);
+  }
+
+  .site-container-narrow {
+    width: 100%;
+    max-width: 56rem;
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 5vw, 3rem);
+  }
+
+  .section-pad {
+    padding-block: clamp(4rem, 10vw, 9rem);
+  }
+
+  /* ── Eyebrow label ────────────────────────────────────── */
+  .label-text {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: var(--tracking-widest2);
+    text-transform: uppercase;
+    color: var(--color-brand);
+  }
+
+  /* ── Section label with left rule ─────────────────────── */
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 1px;
+    flex-shrink: 0;
+    background-color: var(--color-brand);
+  }
+
+  /* ── Brand divider bar ────────────────────────────────── */
+  .brand-divider {
+    width: 3.5rem;
+    height: 1px;
+    background-color: var(--color-brand);
+    margin-block: 1.5rem;
+  }
+
+  /* ── Buttons ──────────────────────────────────────────── */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: var(--tracking-widest2);
+    text-transform: uppercase;
+    padding: 1rem 2rem;
+    border-radius: 2px;
+    transition: all 300ms ease;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+
+  .btn-primary {
+    background-color: var(--color-brand);
+    color: var(--color-stone-950);
+  }
+  .btn-primary:hover {
+    background-color: var(--color-brand-dark);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-brand);
+  }
+
+  .btn-outline {
+    border: 1px solid var(--color-stone-25);
+    color: var(--color-stone-25);
+  }
+  .btn-outline:hover {
+    background-color: var(--color-stone-25);
+    color: var(--color-stone-950);
+  }
+
+  .btn-outline-dark {
+    border: 1px solid var(--color-stone-950);
+    color: var(--color-stone-950);
+  }
+  .btn-outline-dark:hover {
+    background-color: var(--color-stone-950);
+    color: var(--color-stone-25);
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: var(--tracking-widest2);
+    text-transform: uppercase;
+    padding: 0.5rem 0;
+    position: relative;
+    color: var(--color-brand);
+    cursor: pointer;
+  }
+  .btn-ghost::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--color-brand);
+    transition: width 300ms ease;
+  }
+  .btn-ghost:hover::after { width: 100%; }
+
+  /* ── Form inputs ──────────────────────────────────────── */
+  .form-label {
+    font-family: var(--font-body);
+    font-size: var(--font-size-2xs);
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-stone-400);
+  }
+
+  .form-input {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--color-stone-100);
+    border-radius: 2px;
+    background-color: transparent;
+    color: var(--color-stone-950);
+    font-size: 1rem;
+    font-family: var(--font-body);
+    outline: none;
+    transition: border-color 150ms ease;
+  }
+  .form-input::placeholder { color: var(--color-stone-300); }
+  .form-input:focus        { border-color: var(--color-brand); }
+
+  .form-input-dark {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    border: 1px solid rgba(254, 253, 251, 0.15);
+    border-radius: 2px;
+    background-color: transparent;
+    color: var(--color-stone-25);
+    font-size: 1rem;
+    font-family: var(--font-body);
+    outline: none;
+    transition: border-color 150ms ease;
+  }
+  .form-input-dark::placeholder { color: rgba(254, 253, 251, 0.35); }
+  .form-input-dark:focus        { border-color: var(--color-brand); }
+
+  /* ── Image zoom on hover ──────────────────────────────── */
+  .img-zoom img {
+    transition: transform 700ms ease;
+  }
+  .img-zoom:hover img { transform: scale(1.05); }
+
+  /* ── Gradient overlays ────────────────────────────────── */
+  .hero-overlay {
+    background: linear-gradient(
+      160deg,
+      rgba(10,10,8,0.25) 0%,
+      rgba(10,10,8,0.65) 55%,
+      rgba(10,10,8,0.85) 100%
+    );
+  }
+
+  .overlay-dark    { background: rgba(10, 10, 8, 0.72); }
+
+  /* ── Scroll indicator animation ───────────────────────── */
+  .scroll-line { animation: var(--animate-scroll-pulse); }
+
+  /* ── Animation delay helpers ──────────────────────────── */
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+}

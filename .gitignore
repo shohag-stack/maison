@@ -2,13 +2,27 @@
 
 # dependencies
 /node_modules
+**/node_modules/
 /.pnp
 .pnp.js
 .yarn/install-state.gz
+node_modules
+studio/node_modules
+frontend/node_modules
 
 # misc
 .DS_Store
 *.pem
+
+# next
+.next
+out
+frontend/.next
+
+
+# sanity
+.sanity
+studio/.sanity
 
 # debug
 npm-debug.log*
@@ -19,6 +33,7 @@ yarn-error.log*
 .env
 .env.*
 !.env.example
+.env.local
 
 # vercel
 .vercel
@@ -26,3 +41,5 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+# next.js build output
+frontend/.next/
