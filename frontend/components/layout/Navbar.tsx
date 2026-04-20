@@ -5,10 +5,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const NAV_LINKS = [
-  { href: "/menu",         label: "Menu" },
-  { href: "/about",        label: "Our Story" },
+  { href: "/Home",         label: "Home" },
+  { href: "/our-story",        label: "Our Story" },
   { href: "/gallery",      label: "Gallery" },
   { href: "/contact",      label: "Contact" },
+  { href: "/reservation",      label: "Reservation" },
 ];
 
 export default function Navbar({ name }: { name: string }) {
@@ -51,7 +52,7 @@ export default function Navbar({ name }: { name: string }) {
         <Link
           href="/"
           className={[
-            "font-display text-2xl font-light tracking-tight shrink-0 transition-colors duration-300",
+            "font-display text-2xl font-medium tracking-tight shrink-0 transition-colors duration-300",
             transparent ? "text-stone-25" : "text-stone-950",
           ].join(" ")}
         >
@@ -59,18 +60,18 @@ export default function Navbar({ name }: { name: string }) {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-10" aria-label="Main">
+        <nav className="hidden md:flex items-center gap-30" aria-label="Main">
           {NAV_LINKS.map(({ href, label }) => (
             <Link
               key={href}
               href={href}
               className={[
-                "relative text-xs font-medium tracking-widest2 uppercase font-body transition-colors duration-200",
+                "relative text-xl font-display transition-colors duration-200",
                 "after:absolute after:-bottom-1 after:left-0 after:h-px after:transition-all after:duration-300",
                 pathname === href
                   ? "text-brand after:w-full after:bg-brand"
                   : transparent
-                  ? "text-stone-25/70 hover:text-brand after:w-0 hover:after:w-full after:bg-brand"
+                  ? "text-stone-25 hover:text-secondary-light after:w-0 hover:after:w-full after:bg-secondary-light"
                   : "text-stone-500 hover:text-brand after:w-0 hover:after:w-full after:bg-brand",
               ].join(" ")}
             >
@@ -83,12 +84,8 @@ export default function Navbar({ name }: { name: string }) {
         <Link
           href="/reservations"
           className={[
-            "hidden md:inline-flex text-xs font-medium tracking-widest2 uppercase font-body",
-            "px-5 py-3 rounded-sm border transition-all duration-300 shrink-0",
-            transparent
-              ? "border-brand text-brand hover:bg-brand hover:text-stone-950"
-              : "border-stone-950 text-stone-950 hover:bg-stone-950 hover:text-stone-25",
-          ].join(" ")}
+            "hidden md:inline-flex text-base font-bold font-display",
+            "px-5 py-3 transition-all duration-300 shrink-0 btn-secondary"].join(" ")}
         >
           Reserve a Table
         </Link>

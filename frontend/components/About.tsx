@@ -14,35 +14,22 @@ export default function About() {
               <span className="label-text">{about.label}</span>
             </div>
             <h2
-              className="font-display font-light tracking-tight text-stone-950 mb-6"
-              style={{ fontSize: "clamp(2.5rem, 4vw, 4rem)", lineHeight: 1.1 }}
+              className="font-display tracking-tight text-stone-950 mb-6 text-6xl"
             >
-              {about.headline.split("\n").map((line, i) => (
-                <span
-                  key={i}
-                  className={["block", i === 1 ? "italic text-brand" : ""].join(
-                    " ",
-                  )}
-                >
-                  {line}
-                </span>
-              ))}
+                  {about.headline}
             </h2>
-            <p className="text-stone-500 text-lg leading-loose mb-10">
+            <p className="text-stone-500 text-lg mb-10 font-medium">
               {about.body}
             </p>
-            <Link href="/about" className="btn-ghost">
+            <Image src={'/img/trust-badge.svg'} width={270} height={70} alt="trust-badge" className="mb-20" />
+            <Link href="/about" className="btn btn-secondary">
               Discover Our Story →
             </Link>
           </div>
 
           {/* Image with decorative border */}
           <div className="relative">
-            <div
-              className="absolute -top-6 -right-6 w-2/3 h-2/3 rounded-sm pointer-events-none border"
-              style={{ borderColor: "rgba(200,169,126,0.3)", zIndex: 0 }}
-            />
-            <div className="relative aspect-[4/5] rounded-xl overflow-hidden shadow-xl-warm z-10">
+            <div className="relative aspect-4/5 overflow-hidden shadow-xl-warm z-10">
               <Image
                 src={about.image}
                 alt="Chef in kitchen"

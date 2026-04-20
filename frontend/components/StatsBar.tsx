@@ -4,7 +4,7 @@ import {stats} from "@/data/stats"
 export default function StatsBar() {
   return (
     <div
-      className="bg-surface-dark border-y py-14"
+      className="border-y py-14"
       style={{ borderColor: "rgba(254,253,251,0.08)" }}
     >
       <div className="site-container">
@@ -15,12 +15,11 @@ export default function StatsBar() {
               className="flex flex-col items-center text-center gap-2"
             >
               <span
-                className="font-display font-light text-brand leading-none"
-                style={{ fontSize: "clamp(2.5rem, 4vw, 4rem)" }}
+                className="font-display font-bold text-7xl leading-none "
               >
                 {value}
               </span>
-              <span className="text-2xs tracking-widest2 uppercase font-body text-stone-400">
+              <span className="text-2xs tracking-widest2 uppercase font-body text-stone-500">
                 {label}
               </span>
             </div>

@@ -10,8 +10,6 @@
    No tailwind.config.ts needed in v4.
    ============================================================ */
 
-/* ── 1. Google Fonts ──────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap');
 
 /* ── 2. Tailwind v4 ───────────────────────────────────────── */
 @import "tailwindcss";
@@ -27,27 +25,29 @@
 @theme {
 
   /* ── Fonts ──────────────────────────────────────────────── */
-  --font-display: 'Cormorant Garamond', Georgia, serif;
-  --font-body:    'DM Sans', system-ui, sans-serif;
+--font-display: var(--font-display);
+--font-body: var(--font-body);
+--font-bolbo: var(--font-bolbo);
 
   /* ── Brand Colors ───────────────────────────────────────── */
-  --color-brand:         #C8A97E;
+  --color-brand:         #0F4729;
   --color-brand-light:   #E2CCAA;
   --color-brand-dark:    #9A7A56;
+  --color-secondary-light: #FCFF96;
 
   /* ── Stone Neutrals (warm near-blacks + off-whites) ─────── */
-  --color-stone-950:     #0A0A08;
+  --color-stone-950:     #0F4729; /* heading color */
   --color-stone-900:     #141412;
   --color-stone-850:     #1C1C1A;
   --color-stone-800:     #2A2A26;
   --color-stone-700:     #3A3A34;
-  --color-stone-500:     #4A4A44;
+  --color-stone-500:     #0F4729; /* body color */
   --color-stone-400:     #6A6A62;
   --color-stone-300:     #8A8A80;
   --color-stone-200:     #C4C4BC;
   --color-stone-100:     #E8E6E0;
   --color-stone-50: #F5F3EE;
-  --color-stone-25: #FEFDFB;
+  --color-stone-25: #FFF7EA;
   --color-stone-400: #dfd7c9;
 
   /* ── Surface Aliases ────────────────────────────────────── */
@@ -57,6 +57,9 @@
 
   /* ── Font Sizes ─────────────────────────────────────────── */
   --font-size-2xs:  0.65rem;
+  --text-lg: 1.250rem;
+  --text-7xl: 5.5rem;
+
 
   /* ── Letter Spacing ─────────────────────────────────────── */
   --tracking-widest2: 0.2em;
@@ -118,8 +121,13 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
-    font-weight: 300;
-    letter-spacing: -0.03em;
+    line-height: 1.1;
+    text-transform: uppercase;
+    font-weight: 800;
+  }
+
+    a {
+    font-family: var(--font-display);
     line-height: 1.1;
   }
 
@@ -194,35 +202,51 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    font-family: var(--font-body);
-    font-size: 0.75rem;
-    font-weight: 500;
+    font-family: var(--font-display);
+    font-size: var(--text-base);
+    font-weight: 700;
     letter-spacing: var(--tracking-widest2);
-    text-transform: uppercase;
     padding: 1rem 2rem;
     border-radius: 2px;
     transition: all 300ms ease;
     white-space: nowrap;
     cursor: pointer;
+    letter-spacing: normal;
+    transition: ease-in 0.2s;
   }
 
   .btn-primary {
     background-color: var(--color-brand);
     color: var(--color-stone-950);
   }
+
+
   .btn-primary:hover {
     background-color: var(--color-brand-dark);
     transform: translateY(-1px);
     box-shadow: var(--shadow-brand);
   }
 
+    .btn-secondary {
+    background-color: var(--color-secondary-light);
+    color: var(--color-brand);
+    border: 2px solid;
+    border-color: var(--color-brand);
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--color-brand);
+    color: var(--color-stone-25)
+  }
+
+
   .btn-outline {
-    border: 1px solid var(--color-stone-25);
+    border: 2px solid var(--color-stone-25);
     color: var(--color-stone-25);
   }
   .btn-outline:hover {
     background-color: var(--color-stone-25);
-    color: var(--color-stone-950);
+    color: var(--color-brand);
   }
 
   .btn-outline-dark {
