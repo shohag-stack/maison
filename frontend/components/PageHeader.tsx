@@ -25,7 +25,7 @@ export default function PageHeader({
         <div className="absolute inset-0 bg-black/10" />
       </div>
       <div className="site-container relative z-10 py-24 text-center flex flex-col items-start justify-baseline gap-4">
-        <h1 className="font-bold font-bolbo text-[250px] leading-normal tracking-wider text-stone-25">
+        <h1 className="font-bold font-bolbo text-6xl md:text-[240px] leading-normal tracking-wider text-stone-25">
           {title}
         </h1>
         {desc && (

@@ -35,8 +35,8 @@ export default function Testimonials() {
                   </div>
                   <div className="flex justify-between items-end">
                     <div>
-                      <div className="w-20 h-20 bg-brand rounded-full overflow-hidden mb-4">
-                        <Image src={url} alt={author} width={100} height={100} />
+                      <div className="w-20 h-20 bg-brand rounded-full overflow-hidden mb-4 relative">
+                        <Image src={url} alt={author} fill className="object-cover" />
                       </div>
                       <span className="font-display font-bold">Amara K.</span>
                       <p>The Times</p>
@@ -49,13 +49,13 @@ export default function Testimonials() {
                   </div>
                 </div>
 
-                <div className="bg-amber-500 h-full">
+                <div className="bg-amber-500 h-full w-">
                   <Image
                     src={url}
                     alt={url}
-                    className=""
                     width={1920}
                     height={1080}
+                    
                   />
                 </div>
               </div>

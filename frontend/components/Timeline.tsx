@@ -44,7 +44,7 @@ export default function Timeline() {
     <section className="pb-24 bg-white">
         <div className="site-container">
           <div className="text-center py-24 md:pt-32 max-w-3xl mx-auto">
-              <h2 className="font-display text-6xl font-bold tracking-tight text-stone-950">
+              <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-stone-950">
                 We have Twelve years in the making
               </h2>
         </div>
@@ -54,19 +54,19 @@ export default function Timeline() {
               <div
                 key={i}
                 className={`relative
-        flex justify-between items-center
-        py-6 gap-20
-        bg-white border-t-2 border-t-brand
-        -mt-8 first:mt-0
-        transition-all duration-300 ease-out
-        hover:-translate-y-6 ${hoverColors[i % hoverColors.length]} `}
+                            flex flex-col md:flex-row justify-between items-start md:items-center
+                            py-6 gap-4 md:gap-20
+                            bg-white border-t-2 border-t-brand
+                            mt-2 md:-mt-8 first:mt-0
+                            transition-all duration-300 ease-out
+                            hover:-translate-y-6 ${hoverColors[i % hoverColors.length]} `}
               >
                 {/* Year */}
                 <span className="font-display text-3xl font-bold text-brand">
                   {year}
                 </span>
                 {/* Event */}
-                <p className="w-full font-display text-3xl font-bold text-brand">
+                <p className="w-full font-display text-2xl md:text-3xl font-bold text-brand">
                   {event}
                 </p>
                 <p className='font-display text-3xl font-bold text-brand'>{i+1}</p>

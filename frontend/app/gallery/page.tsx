@@ -21,10 +21,10 @@ export default async function GalleryPage() {
     <div className="min-h-screen">
       <PageHeader title="Gallery" src="/img/gallery-header.jpg" />
       {/* Hero */}
-      <div style={{ paddingTop: "calc(80px + 5rem)", paddingBottom: "4rem" }}>
+      <div className="py-15 md:py-25">
         <div className="site-container text-center flex flex-col items-center gap-4">
           <p className="label-text text-sm">Visual Diary</p>
-          <h1 className="font-display font-bold tracking-tight text-brand text-6xl">
+          <h1 className="font-display font-bold tracking-tight text-brand text-4xl md:text-6xl">
               
             {gallery.title}
           </h1>

@@ -42,7 +42,7 @@
   --color-stone-800:     #2A2A26;
   --color-stone-700:     #3A3A34;
   --color-stone-500:     #0F4729; /* body color */
-  --color-stone-400:     #6A6A62;
+  --color-stone-400:     #0F4729;
   --color-stone-300:     #8A8A80;
   --color-stone-200:     #C4C4BC;
   --color-stone-100:     #E8E6E0;
@@ -56,7 +56,8 @@
   --color-surface-warm:  #F5F0E8;
 
   /* ── Font Sizes ─────────────────────────────────────────── */
-  --font-size-2xs:  0.65rem;
+  --font-size-2xs:  0.80rem;
+  --text-sm: 1rem;
   --text-lg: 1.250rem;
   --text-7xl: 5.5rem;
 
@@ -132,7 +133,7 @@
   }
 
   ::selection {
-    background-color: var(--color-brand);
+    background-color: var(--color-secondary-light);
     color: var(--color-stone-950);
   }
 
@@ -217,14 +218,14 @@
 
   .btn-primary {
     background-color: var(--color-brand);
-    color: var(--color-stone-950);
+    color: var(--color-stone-25);
   }
 
 
   .btn-primary:hover {
-    background-color: var(--color-brand-dark);
+    background-color: var(--color-secondary-light);
     transform: translateY(-1px);
-    box-shadow: var(--shadow-brand);
+    color: var(--color-brand)
   }
 
     .btn-secondary {
@@ -289,7 +290,7 @@
     font-weight: 500;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--color-stone-400);
+    color: var(--color-stone-950);
   }
 
   .form-input {

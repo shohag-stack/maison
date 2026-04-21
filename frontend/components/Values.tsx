@@ -30,7 +30,7 @@ export default function Values() {
             {/* Left sticky header */}
             <div className="lg:sticky lg:top-28">
               <h2
-                className="font-display font-bold text-6xl tracking-tight text-stone-950">
+                className="font-display font-bold text-4xl md:text-6xl tracking-tight text-stone-950">
                 Our guiding principles
               </h2>
                 <p className="text-medium text-brand text-xl mt-4">Antoine Moreau spent twelve years in some of France&apos;s most celebrated kitchens before opening Maison Élara in 2012. Trained under the legendary Jean-Pierre Billoux in Dijon, he brought with him a profound respect for classical French technique and an equally deep conviction that great food must evolve with its moment.</p>
@@ -39,7 +39,7 @@ export default function Values() {
             <div className="flex flex-col gap-10">
 
               {values.map(({ n, title, body }) => (
-                <div key={n} className="flex gap-6 group bg-white p-10">
+                <div key={n} className="flex flex-col md:flex-row gap-6 group bg-white p-10 overflow-hidden">
                   <div>
                     <span className="font-display text-5xl font-light leading-none text-stone-200 group-hover:text-brand transition-colors duration-300">
                       {n}
@@ -47,7 +47,7 @@ export default function Values() {
                   </div>
                   <div className="pt-1">
                     
-                    <h3 className="font-display lowercase text-4xl font-bold tracking-tight text-stone-950 mb-3">
+                    <h3 className="font-display lowercase text-3xl md:text-4xl font-bold tracking-tight text-stone-950 mb-3">
                       {title}
                     </h3>
                     <div

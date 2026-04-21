@@ -24,8 +24,6 @@ export default function Navbar({ name }: { name: string }) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close mobile menu on route change
-  useEffect(() => { setMenuOpen(false); }, [pathname]);
 
   // Lock body scroll when menu open
   useEffect(() => {
@@ -69,7 +67,9 @@ export default function Navbar({ name }: { name: string }) {
                 "relative text-xl font-display transition-colors duration-200",
                 "after:absolute after:-bottom-1 after:left-0 after:h-px after:transition-all after:duration-300",
                 pathname === href
-                  ? "text-brand after:w-full after:bg-brand"
+                  ? transparent
+                    ? "text-stone-25 after:w-full after:bg-stone-25"
+                    : "text-brand after:w-full after:bg-brand"
                   : transparent
                   ? "text-stone-25 hover:text-secondary-light after:w-0 hover:after:w-full after:bg-secondary-light"
                   : "text-stone-500 hover:text-brand after:w-0 hover:after:w-full after:bg-brand",
@@ -122,12 +122,13 @@ export default function Navbar({ name }: { name: string }) {
       >
         {NAV_LINKS.map(({ href, label }) => (
           <Link
-            key={href}
-            href={href}
-            className="font-display text-3xl font-light text-stone-25 hover:text-secondary-light transition-colors duration-200"
-          >
-            {label}
-          </Link>
+              key={href}
+              href={href}
+              onClick={() => setMenuOpen(false)}
+              className="font-display text-3xl font-light text-stone-25 hover:text-secondary-light transition-colors duration-200"
+            >
+              {label}
+            </Link>
         ))}
         <Link
           href="/reservations"
