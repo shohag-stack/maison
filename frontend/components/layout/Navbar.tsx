@@ -124,7 +124,7 @@ export default function Navbar({ name }: { name: string }) {
           <Link
             key={href}
             href={href}
-            className="font-display text-5xl font-light text-stone-25 hover:text-brand transition-colors duration-200"
+            className="font-display text-3xl font-light text-stone-25 hover:text-secondary-light transition-colors duration-200"
           >
             {label}
           </Link>

@@ -27,7 +27,7 @@ export default function ReservationCta() {
           Join Us
         </p>
         <h2
-          className="font-display uppercase leading-[0.92] mb-4 text-6xl"
+          className="font-display uppercase leading-[0.92] mb-4 text-4xl md:text-6xl"
         >
           A Devotion to the<br />Craft of Cooking
         </h2>

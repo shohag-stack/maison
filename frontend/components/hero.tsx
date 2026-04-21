@@ -4,10 +4,10 @@ import Image from 'next/image'
 
 export default function Hero() {
   return (
-    <section className="relative h-screen min-h-[680px] max-h-[1000px] flex items-end pb-24 overflow-hidden">
+    <section className="relative h-screen flex items-end pb-24 overflow-hidden">
         {/* Background image */}
         <div className="absolute inset-0">
-          <Image src={heroData.image} alt="Restaurant" fill priority className="" />
+          <Image src={heroData.image} alt="Restaurant" fill priority className="object-cover" />
         </div>   
 
         {/* Content */}
@@ -17,7 +17,7 @@ export default function Hero() {
             <Link href={heroData.ctaSecondary.href} className="btn btn-outline">{heroData.ctaSecondary.label}</Link>
           </div>
 
-          <h1 className="text-stone-25 font-hero leading-[0.85] tracking-wide text-[290px] uppercase mt-15 font-bolbo">
+          <h1 className="text-stone-25 leading-[0.85] tracking-wide text-[60px] md:text-[290px] uppercase mt-4 md:mt-15 font-bolbo">
             
               {heroData.headline}
           </h1>

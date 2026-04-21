@@ -147,7 +147,7 @@ function DishCard({ card }: { card: DishCardType }) {
       className="h-full flex flex-col group overflow-hidden"
       style={{ minHeight: 460 }}
     >
-      <div className="overflow-hidden relative w-full h-125">
+      <div className="overflow-hidden relative w-full h-full">
         <Image
           src={card.image}
           alt={card.name}

@@ -63,7 +63,7 @@ export default function GalleryClient({ images }: { images: GalleryImage[] }) {
         className="mb-4 break-inside-avoid overflow-hidden cursor-pointer group img-zoom relative"
       >
         {/* image wrapper */}
-        <div className="relative w-full aspect-[3/4]">
+        <div className="relative w-full aspect-4/3 overflow-hidden">
           <Image
             src={img.image.asset.url}
             alt={img.alt || img._key}

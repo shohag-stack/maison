@@ -14,7 +14,7 @@ export default function About() {
               <span className="label-text">{about.label}</span>
             </div>
             <h2
-              className="font-display tracking-tight text-stone-950 mb-6 text-6xl"
+              className="font-display tracking-tight text-stone-950 mb-2 md:mb-6 text-4xl md:text-6xl"
             >
                   {about.headline}
             </h2>
@@ -29,7 +29,7 @@ export default function About() {
 
           {/* Image with decorative border */}
           <div className="relative">
-            <div className="relative aspect-4/5 overflow-hidden shadow-xl-warm z-10">
+            <div className="relative aspect-4/5 overflow-hidden z-10">
               <Image
                 src={about.image}
                 alt="Chef in kitchen"

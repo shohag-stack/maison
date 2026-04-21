@@ -6,24 +6,24 @@ export default function Testimonials() {
   return (
     <section className="section-pad bg-stone-25">
       <div className="site-container">
-        <div className="text-center mb-16">
+        <div className="text-center mb-4 md:mb-16">
           <div className="section-label justify-center">
             <span className="label-text">What They Say</span>
           </div>
-          <h2 className="font-display text-6xl font-bold tracking-tight text-stone-950">
+          <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-stone-950">
             Voices from our guests
           </h2>
         </div>
         <div className="w-full">
           {testimonials.map(({ id, quote, author, source, url }, index) => (
             <div
-              className={`w-full py-20 border-b border-b-brand`}
+              className={`w-full py-10 md:py-20 border-b border-b-brand`}
               key={id}
             >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
                 <div className="flex flex-col justify-between h-full">
                   <div>
-                    <h3 className="text-5xl mb-6">
+                    <h3 className="text-3xl md:text-5xl mb-6">
                       Breathwork & Blue Lotus Retreat
                     </h3>
                     <p className="font-body text-lg font-medium">

@@ -15,7 +15,7 @@ export default function StatsBar() {
               className="flex flex-col items-center text-center gap-2"
             >
               <span
-                className="font-display font-bold text-7xl leading-none "
+                className="font-display font-bold text-6xl md:text-7xl leading-none "
               >
                 {value}
               </span>

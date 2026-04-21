@@ -27,7 +27,7 @@ export default function CtaSection() {
           we&apos;re waiting for you
         </p>
         <h2
-          className="font-display uppercase leading-[0.92] mb-4 text-6xl text-stone-25"
+          className="font-display uppercase leading-[0.92] mb-4 text-4xl md:text-6xl text-stone-25"
         >
           A Devotion to the<br />Craft of Cooking
         </h2>
