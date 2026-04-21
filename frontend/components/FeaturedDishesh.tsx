@@ -1,7 +1,3 @@
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
-import { dishes } from "@/data/dishes";
 import ConveyorBelt from "./ConveyorBelt";
 
 export default function FeaturedDishesh() {

@@ -1,10 +1,11 @@
 "use client";
 import useEmblaCarousel from "embla-carousel-react";
-import Image from "next/image";
-import Link from "next/link";
 import { useCallback } from "react";
+import HeadingCard from "./HeadingCard";
+import DishCard from "./DishCard";
+import { Card } from "@/types/conveyer";
 
-const cards = [
+const cards: Card[] = [
   {
     type: "heading",
     eyebrow: "FROM THE KITCHEN",
@@ -58,9 +59,9 @@ export default function ConveyorBelt() {
           {cards.map((card, i) => (
             <div key={i} className="flex-none w-full md:w-1/2 lg:w-1/3 pl-6">
               {card.type === "heading" ? (
-                <HeadingCard card={card as HeadingCardType} />
+                <HeadingCard card={card} />
               ) : (
-                <DishCard card={card as DishCardType} />
+                <DishCard card={card} />
               )}
             </div>
           ))}
@@ -101,76 +102,6 @@ export default function ConveyorBelt() {
             />
           </svg>
         </button>
-      </div>
-    </div>
-  );
-}
-
-/* ─── Types ─────────────────────────────── */
-type HeadingCardType = {
-  type: "heading";
-  eyebrow: string;
-  heading: string;
-  body: string;
-};
-
-type DishCardType = {
-  type: "dish";
-  name: string;
-  price: string;
-  description: string;
-  image: string;
-};
-
-/* ─── Heading Card ──────────────────────── */
-function HeadingCard({ card }: { card: HeadingCardType }) {
-  return (
-    <div className="lg:pr-8">
-      <div className="section-label">
-        <span className="label-text">{card.eyebrow}</span>
-      </div>
-      <h2
-        className="font-display tracking-tight text-stone-950 mb-6"
-        style={{ fontSize: "clamp(2.5rem, 4vw, 4rem)", lineHeight: 1.1 }}
-      >
-        {card.heading}
-      </h2>
-      <p className="text-stone-500 text-lg mb-10 font-medium">{card.body}</p>
-    </div>
-  );
-}
-
-/* ─── Dish Card ─────────────────────────── */
-function DishCard({ card }: { card: DishCardType }) {
-  return (
-    <div
-      className="h-full flex flex-col group overflow-hidden"
-      style={{ minHeight: 460 }}
-    >
-      <div className="overflow-hidden relative w-full h-full">
-        <Image
-          src={card.image}
-          alt={card.name}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-          fill
-        />
-      </div>
-      <div className="py-6">
-        <div className="flex justify-between items-start mb-2">
-          <h3
-            className="text-lg font-black uppercase tracking-widest"
-          >
-            {card.name}
-          </h3>
-          <span
-            className="text-lg font-bold "
-          >
-            {card.price}
-          </span>
-        </div>
-        <p className="text-base leading-relaxed">
-          {card.description}
-        </p>
       </div>
     </div>
   );
