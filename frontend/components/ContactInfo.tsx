@@ -1,3 +1,4 @@
+'use client'
 import React from "react";
 import SmallCtaNote from "./SmallCtaNote";
 import { info } from "@/data/reservationInfo";

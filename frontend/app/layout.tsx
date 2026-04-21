@@ -4,6 +4,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { site } from "@/data/siteConfig";
 import { Bricolage_Grotesque, Inter, Bowlby_One } from "next/font/google";
+import LenisProvider from "@/components/lenis/LenisProvider";
 
 
 const display = Bricolage_Grotesque({
@@ -37,6 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${display.variable} ${body.variable} ${bolbo.variable}`} >
       <body className="overflow-x-hidden">
+        <LenisProvider />
         <Navbar name={site.name} />
         <main>{children}</main>
         <Footer name={site.name} />

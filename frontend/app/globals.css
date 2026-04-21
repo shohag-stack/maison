@@ -166,8 +166,8 @@
   /* ── Eyebrow label ────────────────────────────────────── */
   .label-text {
     font-family: var(--font-body);
-    font-size: 0.75rem;
-    font-weight: 500;
+    font-size: var(--text-base);
+    font-weight: 700;
     letter-spacing: var(--tracking-widest2);
     text-transform: uppercase;
     color: var(--color-brand);

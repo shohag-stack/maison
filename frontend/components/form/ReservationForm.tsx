@@ -1,3 +1,4 @@
+'use client'
 import React, { useState } from 'react'
 import CheckIcon from '../ui/CheckIcon';
 import Field from '../ui/Field';
@@ -38,7 +39,7 @@ export default function ReservationForm() {
                         Request received
                       </h2>
                       <p className="text-stone-500 text-lg leading-loose max-w-md">
-                        Thank you, {form.firstName}. We'll confirm your reservation at {form.email} within 24 hours.
+                        Thank you, {form.firstName}. We&apos;ll confirm your reservation at {form.email} within 24 hours.
                       </p>
                     </div>
                     <button

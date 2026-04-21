@@ -3,18 +3,33 @@ export const info = {
   phone:   "+1 (212) 555-0147",
   email:   "hello@maisonelara.com",
   hours: [
-    { label: "Lunch",  value: "Tue – Sat  ·  12:00 – 14:30" },
-    { label: "Dinner", value: "Tue – Sat  ·  18:30 – 22:30" },
+    { label: "Lunch", days: "Tue – Sat", value: "12:00 – 14:30" },
+    { label: "Dinner", days: "Tue – Sat", value: "18:30 – 22:30" },
     { label: "Closed", value: "Sunday & Monday" },
   ],
-  social: {
-    instagram: "https://instagram.com",
-    facebook:  "https://facebook.com",
-  },
+  social: [   {
+      label: "Instagram",
+      value: "https://instagram.com",
+    },
+    {
+      label: "Facebook",
+      value: "https://facebook.com",
+    },
+
+    {
+      label: "Twitter",
+      value: "https://twitter.com",
+    },
+
+    {
+      label: "Pinterest",
+      value: "https://pinterest.com",
+    },
+  ],
 };
 
 export const navLinks = [
-  { href: "/menu",         label: "Our Menu" },
+  { href: "/menu",         label: "Menu" },
   { href: "/about",        label: "Our Story" },
   { href: "/gallery",      label: "Gallery" },
   { href: "/reservations", label: "Reservations" },

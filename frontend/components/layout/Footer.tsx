@@ -1,117 +1,142 @@
+'use client'
 import Link from "next/link";
-
 import { info, navLinks } from "@/data/footer";
-// ─── SANITY HOOK: fetch footer settings ─────────────────────
+import Image from "next/image";
+import { Mail, MapPin, Phone } from "lucide-react";
 
 export default function Footer({ name }: { name: string }) {
   const year = new Date().getFullYear();
 
   return (
     <footer className="bg-surface-dark text-stone-25">
-      {/* Top gradient rule */}
+      {/* Gradient line */}
       <div
         className="h-px w-full"
-        style={{ background: "linear-gradient(to right, transparent, var(--color-brand), transparent)" }}
+        style={{
+          background:
+            "linear-gradient(to right, transparent, var(--color-brand), transparent)",
+        }}
       />
 
-      <div className="site-container py-20 lg:py-28">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-14 lg:gap-20 pb-16 border-b border-stone-25/10">
-
-          {/* Brand */}
-          <div className="lg:col-span-1">
-            <Link href="/" className="font-display text-3xl font-light tracking-tight hover:text-brand transition-colors duration-200 block mb-3">
+      <div className="site-container py-16 md:py-20 lg:py-28">
+        {/* MAIN GRID */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-16 pb-10">
+          
+          {/* BRAND */}
+          <div className="sm:col-span-2">
+            <Link
+              href="/"
+              className="font-display text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight hover:text-brand transition mb-3 block"
+            >
               {name}
             </Link>
-            <p className="text-xs tracking-widest2 uppercase font-body text-stone-400 mb-6">
+
+            <p className="text-[10px] sm:text-xs tracking-widest uppercase font-bold text-stone-400 mb-6">
               Contemporary French Cuisine
             </p>
-            <div className="brand-divider" />
-            <p className="text-sm text-stone-400 leading-relaxed">{info.address}</p>
+
+            {/* VIDEO */}
+            <video
+              className="mb-6 w-full sm:w-3/4 lg:w-1/2"
+              src="/videos/footer.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+            />
+
+            {/* CONTACT */}
+            <div className="flex flex-col gap-3 text-sm sm:text-lg">
+              <div className="flex items-center gap-3">
+                <Phone size={18} />
+                <p>{info.phone}</p>
+              </div>
+              <div className="flex items-center gap-3">
+                <Mail size={18} />
+                <p>{info.email}</p>
+              </div>
+              <div className="flex items-center gap-3">
+                <MapPin size={18} />
+                <p>{info.address}</p>
+              </div>
+            </div>
           </div>
 
-          {/* Navigate */}
+          {/* NAV */}
           <div>
-            <p className="text-xs tracking-widest2 uppercase font-body text-brand mb-6">Explore</p>
-            <nav className="flex flex-col gap-3">
+            <p className="text-xs tracking-widest uppercase text-secondary-light mb-5">
+              Explore
+            </p>
+
+            <nav className="flex flex-col gap-2">
               {navLinks.map(({ href, label }) => (
-                <Link key={href} href={href} className="text-sm text-stone-400 hover:text-stone-25 transition-colors duration-150">
+                <Link
+                  key={href}
+                  href={href}
+                  className="text-lg sm:text-2xl hover:text-secondary-light transition"
+                >
                   {label}
                 </Link>
               ))}
             </nav>
           </div>
 
-          {/* Hours */}
+          {/* SOCIAL */}
           <div>
-            <p className="text-xs tracking-widest2 uppercase font-body text-brand mb-6">Hours</p>
-            <div className="flex flex-col gap-4">
-              {info.hours.map(({ label, value }) => (
-                <div key={label}>
-                  <p className="text-2xs tracking-widest uppercase font-body text-brand-light mb-1">{label}</p>
-                  <p className="text-sm text-stone-400">{value}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+            <p className="text-xs tracking-widest uppercase text-secondary-light mb-5">
+              Socials
+            </p>
 
-          {/* Contact */}
-          <div>
-            <p className="text-xs tracking-widest2 uppercase font-body text-brand mb-6">Get in Touch</p>
-            <div className="flex flex-col gap-3 mb-8">
-              <a href={`tel:${info.phone}`} className="text-sm text-stone-400 hover:text-brand transition-colors duration-150">{info.phone}</a>
-              <a href={`mailto:${info.email}`} className="text-sm text-stone-400 hover:text-brand transition-colors duration-150">{info.email}</a>
-            </div>
-            <div className="flex gap-3">
-              {[
-                { href: info.social.instagram, label: "Instagram", icon: <InstagramIcon /> },
-                { href: info.social.facebook,  label: "Facebook",  icon: <FacebookIcon /> },
-              ].map(({ href, label, icon }) => (
-                <a
+            <div className="flex flex-col gap-3">
+              {info.social.map(({ label, value }) => (
+                <Link
                   key={label}
-                  href={href}
-                  aria-label={label}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-9 h-9 flex items-center justify-center border rounded-sm text-stone-400 hover:text-brand hover:border-brand transition-all duration-150"
-                  style={{ borderColor: "rgba(254,253,251,0.15)" }}
+                  href={value}
+                  className="text-lg sm:text-lg uppercase tracking-wide hover:text-secondary-light transition"
                 >
-                  {icon}
-                </a>
+                  {label}
+                </Link>
               ))}
             </div>
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-          <p className="text-sm text-stone-400 tracking-wide font-body">
+        {/* HOURS SECTION */}
+        <div className="bg-secondary-light p-6 sm:p-8 lg:p-10 rounded-md flex flex-col sm:flex-row flex-wrap gap-6">
+          {info.hours.map(({ label, days, value }) => (
+            <div key={label} className="min-w-[140px]">
+              <p className="text-brand font-display font-bold text-lg">
+                {label}
+              </p>
+
+              {days && (
+                <p className="text-base text-brand font-semibold">{days}</p>
+              )}
+
+              <p className="text-base text-brand">{value}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* BOTTOM BAR */}
+        <div className="pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-sm">
+          <p className="text-stone-400">
             © {year} {name}. All rights reserved.
           </p>
-          <p className="text-sm text-stone-400 font-body">
-            Built with <span className="text-brand">♥</span> by{" "}
-            <a href="https://rayso.studio" target="_blank" rel="noopener noreferrer" className="text-brand hover:opacity-70 transition-opacity">
+
+          <p className="text-stone-400">
+            Built with <span className="text-secondary-light">♥</span> by{" "}
+            <a
+              href="https://rayso.studio"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-secondary-light hover:opacity-70"
+            >
               rayso.studio
             </a>
           </p>
         </div>
       </div>
     </footer>
-  );
-}
-
-function InstagramIcon() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="2" y="2" width="20" height="20" rx="5"/>
-      <circle cx="12" cy="12" r="4"/>
-      <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
-    </svg>
-  );
-}
-function FacebookIcon() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-    </svg>
   );
 }

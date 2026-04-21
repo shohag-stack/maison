@@ -35,16 +35,16 @@ export default function GalleryClient({ images }: { images: GalleryImage[] }) {
     <>
       {/* Filter tabs */}
       <div className="site-container pb-10">
-        <div className="flex flex-wrap gap-3 justify-center">
+        <div className="flex flex-wrap gap-3 justify-center bg-white">
           {CATEGORIES.map((cat) => (
             <button
               key={cat}
               onClick={() => setActive(cat)}
               className={[
-                "text-xs font-medium tracking-widest2 uppercase font-body px-6 py-3 rounded-sm border transition-all duration-200",
+                "text-sm font-bold tracking-widest2 uppercase font-body px-6 py-3 rounded-sm border transition-all duration-200",
                 active === cat
-                  ? "bg-brand text-stone-950 border-brand"
-                  : "border-stone-25/20 text-stone-400 hover:border-brand hover:text-brand",
+                  ? "bg-brand text-stone-25 border-brand"
+                  : "border-stone-25/20 text-brand hover:border-brand hover:text-brand",
               ].join(" ")}
             >
               {cat}

@@ -5,11 +5,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const NAV_LINKS = [
-  { href: "/Home",         label: "Home" },
-  { href: "/our-story",        label: "Our Story" },
+  { href: "/",         label: "Home" },
+  { href: "/about",        label: "Our Story" },
   { href: "/gallery",      label: "Gallery" },
   { href: "/contact",      label: "Contact" },
-  { href: "/reservation",      label: "Reservation" },
+  { href: "/reservations",      label: "Reservation" },
 ];
 
 export default function Navbar({ name }: { name: string }) {

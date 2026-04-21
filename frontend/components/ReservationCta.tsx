@@ -23,7 +23,6 @@ export default function ReservationCta() {
       >
         <p
           className="text-label font-bold tracking-[0.25em] uppercase mb-6"
-          style={{ fontFamily: "'Arial', sans-serif" }}
         >
           Join Us
         </p>
