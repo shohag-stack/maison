@@ -12,7 +12,7 @@ type SanityImage = {
 
 export const components: PortableTextComponents = {
   types: {
-    image: ({ value }) => (
+    image: ({ value }: {value: string}) => (
       <Image
         src={urlFor(value).width(800).url()}
         alt="blog"
@@ -43,10 +43,5 @@ export const components: PortableTextComponents = {
   )},
 
     
-  },
-  block: {
-    h1: ({ children }) => <h1 className="text-4xl font-bold my-6">{children}</h1>,
-    h2: ({ children }) => <h2 className="text-3xl font-semibold my-5">{children}</h2>,
-    normal: ({ children }) => <p className="leading-7 my-4">{children}</p>,
   },
 };

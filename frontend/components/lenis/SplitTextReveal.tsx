@@ -8,7 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 interface SplitLinesRevealProps {
   children: string | React.ReactNode;
-  as?: keyof JSX.IntrinsicElements;
+  as?: React.ElementType;
   className?: string;
   delay?: number;
   duration?: number;
