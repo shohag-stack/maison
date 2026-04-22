@@ -79,12 +79,14 @@ export default function Navbar({ name }: { name: string }) {
 
         {/* Reserve button — desktop */}
         <div className="overflow-hidden">
-          <motion.div
+          <Link
           
           href="/reservations"
           className={[
             "hidden md:inline-flex text-base font-bold font-display",
             "px-5 py-3 transition-all duration-300 shrink-0 btn-secondary"].join(" ")}
+        >
+          <motion.div
             initial={
               {
                 opacity: 0,
@@ -92,11 +94,11 @@ export default function Navbar({ name }: { name: string }) {
               }
             }
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.1, easeIn, delay: 0.1 }}
-
-        >
-          Reserve a Table
-        </motion.div>
+            transition={{ duration: 0.1, delay: 0.1 }}
+          > 
+            Reserve a Table
+          </motion.div>
+        </Link>
         </div>
 
         {/* Hamburger — mobile */}

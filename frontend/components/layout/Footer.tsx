@@ -52,7 +52,7 @@ export default function Footer({ name }: { name: string }) {
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, easeIn, delay: 0.1 }}
+                transition={{ duration: 0.4, delay: 0.1 }}
                 className="flex items-center gap-3">
                 <Phone size={18} />
                 <p>{info.phone}</p>
@@ -62,7 +62,7 @@ export default function Footer({ name }: { name: string }) {
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, easeIn, delay: 0.1 }}
+                transition={{ duration: 0.4, delay: 0.1 }}
               
               className="flex items-center gap-3">
                 <Mail size={18} />
@@ -72,7 +72,7 @@ export default function Footer({ name }: { name: string }) {
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, easeIn, delay: 0.1 }}
+                transition={{ duration: 0.4, delay: 0.1 }}
               
               
               className="flex items-center gap-3">
