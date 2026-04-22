@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { DishCardType } from "@/types/conveyer";
+import SplitTextReveal from "@/components/lenis/SplitTextReveal"
 
 /* ─── Dish Card ─────────────────────────── */
 export default function DishCard({ card }: { card: DishCardType }) {
@@ -18,12 +19,12 @@ export default function DishCard({ card }: { card: DishCardType }) {
       </div>
       <div className="py-6">
         <div className="flex justify-between items-start mb-2">
-          <h3 className="text-lg font-black uppercase tracking-widest">
+          <SplitTextReveal className="text-lg font-black uppercase tracking-widest">
             {card.name}
-          </h3>
-          <span className="text-lg font-bold ">{card.price}</span>
+          </SplitTextReveal>
+          <SplitTextReveal className="text-lg font-bold ">{card.price}</SplitTextReveal>
         </div>
-        <p className="text-base leading-relaxed">{card.description}</p>
+        <SplitTextReveal className="text-base leading-relaxed">{card.description}</SplitTextReveal>
       </div>
     </div>
   );

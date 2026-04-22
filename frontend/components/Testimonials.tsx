@@ -1,6 +1,6 @@
-import React from "react";
 import { testimonials } from "@/data/testimonials";
 import Image from "next/image";
+import SplitTextReveal from "./lenis/SplitTextReveal";
 
 export default function Testimonials() {
   return (
@@ -8,11 +8,11 @@ export default function Testimonials() {
       <div className="site-container">
         <div className="text-center mb-4 md:mb-16">
           <div className="section-label justify-center">
-            <span className="label-text">What They Say</span>
+            <SplitTextReveal className="label-text">What They Say</SplitTextReveal>
           </div>
-          <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-stone-950">
+          <SplitTextReveal className="font-display text-4xl md:text-6xl font-bold tracking-tight text-stone-950">
             Voices from our guests
-          </h2>
+          </SplitTextReveal>
         </div>
         <div className="w-full">
           {testimonials.map(({ id, quote, author, source, url }, index) => (

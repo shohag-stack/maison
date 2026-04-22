@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-// import { images } from "@/data/galleryImages";
+import { galleryImages } from "@/data/galleryImages";
 
 export const metadata: Metadata = {
   title: "Gallery",
@@ -9,13 +9,23 @@ export const metadata: Metadata = {
 const OPTIONS = {next: {revalidate: 30}}
 
 import GalleryClient from "./GalleryClient";
-import { client } from "@/sanity/client";
-import { GALLERY_QUERY } from "@/sanity/QUERY";
+import { client } from "@/sanity/lib/client";
+import { GALLERY_QUERY } from "@/sanity/lib/QUERY";
 import PageHeader from "@/components/PageHeader";
 
 export default async function GalleryPage() {
 
-  const gallery = await client.fetch(GALLERY_QUERY, {}, OPTIONS)
+  let gallery = null;
+
+  try {
+    if (client) {
+      gallery = await client.fetch(GALLERY_QUERY, {}, OPTIONS);
+    }
+  } catch (e) {
+    console.log("Sanity fetch failed, using fallback");
+  }
+
+  const data = gallery ?? galleryImages;
 
   return (
     <div className="min-h-screen">
@@ -26,7 +36,7 @@ export default async function GalleryPage() {
           <p className="label-text text-sm">Visual Diary</p>
           <h1 className="font-display font-bold tracking-tight text-brand text-4xl md:text-6xl">
               
-            {gallery.title}
+            {galleryImages.title}
           </h1>
           <p className="text-sbrand text-lg max-w-md leading-normal">
             Every corner of Élara has a story. Here are some of ours.
@@ -34,7 +44,7 @@ export default async function GalleryPage() {
         </div>
       </div>
 
-      <GalleryClient images={gallery.images} />
+      <GalleryClient images={data.images} />
     </div>
   );
 }

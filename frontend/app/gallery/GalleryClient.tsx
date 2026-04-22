@@ -39,7 +39,7 @@ export default function GalleryClient({ images }: { images: GalleryImage[] }) {
               key={cat}
               onClick={() => setActive(cat)}
               className={[
-                "text-sm font-bold tracking-widest2 uppercase font-body px-6 py-3 rounded-sm border transition-all duration-200",
+                "text-xs font-semibold uppercase font-body px-6 py-3 rounded-sm border transition-all duration-200",
                 active === cat
                   ? "bg-brand text-stone-25 border-brand"
                   : "border-stone-25/20 text-brand hover:border-brand hover:text-brand",

@@ -1,7 +1,7 @@
 'use client'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import SplitTextReveal from "@/components/lenis/SplitTextReveal"
 
 export default function CtaSection() {
   return (
@@ -21,22 +21,22 @@ export default function CtaSection() {
       {/* Floating white card */}
       <div
         className="relative z-10 mx-4 md:mx-12 lg:mx-24 px-8 md:px-20 pt-16 pb-28 text-center max-w-4xl w-full">
-        <p
+        <SplitTextReveal
           className="text-label font-bold tracking-[0.25em] uppercase mb-6 text-stone-25"
         >
           we&apos;re waiting for you
-        </p>
-        <h2
-          className="font-display uppercase leading-[0.92] mb-4 text-4xl md:text-6xl text-stone-25"
+        </SplitTextReveal>
+        <SplitTextReveal
+          className="font-display font-bold uppercase leading-[0.92] mb-4 text-4xl md:text-6xl text-stone-25"
         >
-          A Devotion to the<br />Craft of Cooking
-        </h2>
-        <p
+          A Devotion to the Craft of Cooking
+        </SplitTextReveal>
+        <SplitTextReveal
           className="font-body text-base md:text-lg leading-relaxed mb-10 max-w-lg mx-auto text-stone-25"
         >
           Tables available Tuesday through Saturday, lunch and dinner.
           Private dining for groups of eight or more.
-        </p>
+        </SplitTextReveal>
 
         {/* CTA button — outlined, light yellow-green fill like the design */}
         <Link

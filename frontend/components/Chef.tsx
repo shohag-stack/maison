@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import SplitTextReveal from "@/components/lenis/SplitTextReveal"
 
 const chef = {
   name: "Chef Antoine Moreau",
@@ -36,13 +36,13 @@ export default function Chef() {
             {/* Text */}
             <div>
               <div className="section-label">
-                <span className="label-text">The Chef</span>
+<span className="label-text"><SplitTextReveal>The Chef</SplitTextReveal></span>
               </div>
               <h2 className="font-display text-4xl lg:text-6xl font-bold tracking-tight text-stone-950 mb-3">
-                {chef.name}
+                <SplitTextReveal>{chef.name}</SplitTextReveal>
               </h2>
               <p className="text-sm tracking-widest2 uppercase font-body text-brand mb-6">
-                {chef.title}
+                <SplitTextReveal>{chef.title}</SplitTextReveal>
               </p>
               <div className="brand-divider" />
               <div className="flex flex-col gap-4">
@@ -56,7 +56,7 @@ export default function Chef() {
                         : "text-xl",
                     ].join(" ")}
                   >
-                    {p}
+                    <SplitTextReveal>{p}</SplitTextReveal>
                   </p>
                 ))}
                 <Link

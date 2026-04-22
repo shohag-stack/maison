@@ -6,6 +6,7 @@ import Timeline from "@/components/Timeline";
 import Values from "@/components/Values";
 import type { Metadata } from "next";
 import Image from "next/image";
+import SplitTextReveal from "@/components/lenis/SplitTextReveal"
 
 export const metadata: Metadata = {
   title: "Our Story",
@@ -20,19 +21,16 @@ export default function AboutPage() {
         {/* ── Dark Hero ─────────────────────────────────────── */}
         <PageHeader title="About" src="/img/about-header.jpg" />
 
-        <div className="text-center py-24 md:py-32 max-w-3xl mx-auto">
+        <div className="text-center py-24 md:pt-32 pb-10 max-w-3xl mx-auto">
           <div className="section-label justify-center">
             <span className="label-text">What They Say</span>
           </div>
           <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-stone-950">
-            A kitchen built on <br />
-            conviction
+            <SplitTextReveal> A kitchen built on conviction </SplitTextReveal>
           </h2>
-          <p className="text-xl font-medium mt-4">
-            Maison Élara was never meant to be a landmark. It was meant to be a
-            place where food mattered deeply — to the people who made it and the
-            people who ate it. Somehow, the rest followed.
-          </p>
+          <SplitTextReveal className="text-xl font-medium mt-4">
+            Maison Élara was never meant to be a landmark. It was meant to be a place where food mattered deeply to the people who made it and the people who ate it. Somehow, the rest followed.
+          </SplitTextReveal>
         </div>
 
         {/* ── Chef Section ───────────────────────────────────── */}

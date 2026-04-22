@@ -2,6 +2,7 @@ import React from "react";
 import { about } from "@/data/about";
 import Image from "next/image";
 import Link from "next/link";
+import SplitTextReveal from "./lenis/SplitTextReveal";
 
 export default function About() {
   return (
@@ -13,15 +14,19 @@ export default function About() {
             <div className="section-label">
               <span className="label-text">{about.label}</span>
             </div>
-            <h2
-              className="font-display tracking-tight text-stone-950 mb-2 md:mb-6 text-4xl md:text-6xl"
-            >
-                  {about.headline}
-            </h2>
-            <p className="text-stone-500 text-lg mb-10 font-medium">
+              <SplitTextReveal className="font-display font-bold tracking-tight text-stone-950 mb-2 md:mb-6 text-4xl md:text-6xl">{about.headline}</SplitTextReveal>
+
+
+            <SplitTextReveal className="text-stone-500 text-lg mb-10 font-medium">
               {about.body}
-            </p>
-            <Image src={'/img/trust-badge.svg'} width={270} height={70} alt="trust-badge" className="mb-20" />
+            </SplitTextReveal>
+            <Image
+              src={"/img/trust-badge.svg"}
+              width={270}
+              height={70}
+              alt="trust-badge"
+              className="mb-20"
+            />
             <Link href="/about" className="btn btn-secondary">
               Discover Our Story →
             </Link>

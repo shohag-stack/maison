@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { legend } from "@/data/legend";
 import MenuSections from "@/components/MenuSections";
-import { client } from "@/sanity/client";
-import { MENU_QUERY } from "@/sanity/QUERY";
+import { client } from "@/sanity/lib/client";
+import { MENU_QUERY } from "@/sanity/lib/QUERY";
 import { Menus } from "@/types/menusSection";
+import {sections} from "@/data/menus"
+import PageHeader from "@/components/PageHeader";
+import CtaSection from "@/components/CtaSection";
 
 export const metadata: Metadata = {
   title: "Menu",
@@ -19,25 +21,24 @@ const OPTIONS = {next: {revalidate: 30}}
 
 export default async function MenuPage() {
 
-  const menus = await client.fetch<Menus[]>(MENU_QUERY,{}, OPTIONS )
+  let data = null
+
+  try {
+    if(client) {
+      data = await client.fetch<Menus[]>(MENU_QUERY,{}, OPTIONS )
+    }
+  }
+  catch(err){
+    console.log("error fetching menu items", err)
+  }
+
+  const menus = data ?? sections
 
   
   return (
     <div className="bg-stone-25 min-h-screen">
       {/* ── Page Hero ──────────────────────────────────────── */}
-      <div className="bg-surface-dark" style={{ paddingTop: "calc(80px + 5rem)", paddingBottom: "5rem" }}>
-        <div className="site-container text-center flex flex-col items-center gap-4">
-          <p className="label-text">Our Offerings</p>
-          <h1 className="font-display font-light tracking-tight text-stone-25"
-              style={{ fontSize: "clamp(3.5rem, 7vw, 7rem)", lineHeight: 1 }}>
-            The Menu
-          </h1>
-          <p className="text-stone-400 text-lg leading-loose max-w-lg">
-            Seasonal ingredients, classical technique, contemporary spirit.<br />
-            Menu changes with the seasons.
-          </p>
-        </div>
-      </div>
+      <PageHeader title="Menu" src="/img/gallery-header.jpg"/>
 
       {/* ── Content ────────────────────────────────────────── */}
       <div className="site-container-narrow py-16 lg:py-24">
@@ -58,27 +59,11 @@ export default async function MenuPage() {
         </div>
 
         {/* Sections */}
-        {menus.map(({ _id, title, subtitle, items }) => (
-          <MenuSections key={_id} title={title} subtitle={subtitle} items={items} _id={_id} />
+        {menus.map(({ _id, title, subtitle, items }, idx) => (
+          <MenuSections key={_id} title={title} subtitle={subtitle} items={items} _id={String(idx)} />
         ))}
-
-        {/* Wine note */}
-        <div className="bg-surface-dark rounded-xl p-10 mb-16">
-          <p className="label-text mb-4">Wine Programme</p>
-          <p className="text-stone-400 text-lg leading-loose italic">
-            Our sommelier has curated an extensive cellar of French and European wines.
-            Ask your server for pairing recommendations or request our full wine list.
-          </p>
-        </div>
-
-        {/* CTA */}
-        <div className="text-center flex flex-col items-center gap-6">
-          <p className="font-display text-3xl font-light italic text-stone-400">
-            Ready to experience the menu?
-          </p>
-          <Link href="/reservations" className="btn btn-primary">Reserve Your Table</Link>
-        </div>
       </div>
+      <CtaSection />
     </div>
   );
 }

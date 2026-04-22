@@ -3,14 +3,9 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
-const NAV_LINKS = [
-  { href: "/",         label: "Home" },
-  { href: "/about",        label: "Our Story" },
-  { href: "/gallery",      label: "Gallery" },
-  { href: "/contact",      label: "Contact" },
-  { href: "/reservations",      label: "Reservation" },
-];
+import { navLinks } from "@/data/footer";
+import SplitTextReveal from "@/components/lenis/SplitTextReveal"
+import {easeIn, motion} from "framer-motion"
 
 export default function Navbar({ name }: { name: string }) {
   const [scrolled, setScrolled]   = useState(false);
@@ -53,13 +48,14 @@ export default function Navbar({ name }: { name: string }) {
             "font-display text-2xl font-medium tracking-tight shrink-0 transition-colors duration-300",
             transparent ? "text-stone-25" : "text-stone-950",
           ].join(" ")}
+          
         >
-          {name}
+          <SplitTextReveal>{name}</SplitTextReveal>
         </Link>
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-30" aria-label="Main">
-          {NAV_LINKS.map(({ href, label }) => (
+          {navLinks.map(({ href, label }) => (
             <Link
               key={href}
               href={href}
@@ -74,21 +70,34 @@ export default function Navbar({ name }: { name: string }) {
                   ? "text-stone-25 hover:text-secondary-light after:w-0 hover:after:w-full after:bg-secondary-light"
                   : "text-stone-500 hover:text-brand after:w-0 hover:after:w-full after:bg-brand",
               ].join(" ")}
+        
             >
-              {label}
+              <SplitTextReveal>{label}</SplitTextReveal>
             </Link>
           ))}
         </nav>
 
         {/* Reserve button — desktop */}
-        <Link
+        <div className="overflow-hidden">
+          <motion.div
+          
           href="/reservations"
           className={[
             "hidden md:inline-flex text-base font-bold font-display",
             "px-5 py-3 transition-all duration-300 shrink-0 btn-secondary"].join(" ")}
+            initial={
+              {
+                opacity: 0,
+                y:18
+              }
+            }
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.1, easeIn, delay: 0.1 }}
+
         >
           Reserve a Table
-        </Link>
+        </motion.div>
+        </div>
 
         {/* Hamburger — mobile */}
         <button
@@ -120,7 +129,7 @@ export default function Navbar({ name }: { name: string }) {
           menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none",
         ].join(" ")}
       >
-        {NAV_LINKS.map(({ href, label }) => (
+        {navLinks.map(({ href, label }) => (
           <Link
               key={href}
               href={href}

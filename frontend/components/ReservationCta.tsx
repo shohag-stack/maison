@@ -1,7 +1,7 @@
 'use client'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import SplitTextReveal from "@/components/lenis/SplitTextReveal"
 
 export default function ReservationCta() {
   return (
@@ -26,17 +26,10 @@ export default function ReservationCta() {
         >
           Join Us
         </p>
-        <h2
-          className="font-display uppercase leading-[0.92] mb-4 text-4xl md:text-6xl"
-        >
-          A Devotion to the<br />Craft of Cooking
-        </h2>
-        <p
-          className="font-body text-base md:text-lg leading-relaxed mb-10 max-w-lg mx-auto"
-        >
-          Tables available Tuesday through Saturday, lunch and dinner.
-          Private dining for groups of eight or more.
-        </p>
+        <SplitTextReveal className='font-display font-bold uppercase leading-[0.92] mb-4 text-4xl md:text-6xl' > A Devotion to the Craft of Cooking </SplitTextReveal>
+
+      <SplitTextReveal className='font-body text-base md:text-lg leading-relaxed mb-10 max-w-lg mx-auto'> Tables available Tuesday through Saturday, lunch and dinner.
+          Private dining for groups of eight or more. </SplitTextReveal>
 
         {/* CTA button — outlined, light yellow-green fill like the design */}
         <Link

@@ -48,7 +48,6 @@
   --color-stone-100:     #E8E6E0;
   --color-stone-50: #F5F3EE;
   --color-stone-25: #FFF7EA;
-  --color-stone-400: #dfd7c9;
 
   /* ── Surface Aliases ────────────────────────────────────── */
   --color-surface-dark:  #0F4729;
@@ -59,6 +58,7 @@
   --font-size-2xs:  0.80rem;
   --text-sm: 1rem;
   --text-lg: 1.250rem;
+  --text-6xl: 3.7rem;
   --text-7xl: 5.5rem;
 
 

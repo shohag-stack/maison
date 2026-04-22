@@ -3,6 +3,8 @@ import Link from "next/link";
 import { info, navLinks } from "@/data/footer";
 import Image from "next/image";
 import { Mail, MapPin, Phone } from "lucide-react";
+import SplitTextReveal from "@/components/lenis/SplitTextReveal"
+import {easeIn, motion} from "framer-motion"
 
 export default function Footer({ name }: { name: string }) {
   const year = new Date().getFullYear();
@@ -28,7 +30,7 @@ export default function Footer({ name }: { name: string }) {
               href="/"
               className="font-display text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight hover:text-brand transition mb-3 block"
             >
-              {name}
+              <SplitTextReveal>{name}</SplitTextReveal>
             </Link>
 
             <p className="text-[10px] sm:text-xs tracking-widest uppercase font-bold text-stone-400 mb-6">
@@ -47,25 +49,43 @@ export default function Footer({ name }: { name: string }) {
 
             {/* CONTACT */}
             <div className="flex flex-col gap-3 text-sm sm:text-lg">
-              <div className="flex items-center gap-3">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, easeIn, delay: 0.1 }}
+                className="flex items-center gap-3">
                 <Phone size={18} />
                 <p>{info.phone}</p>
-              </div>
-              <div className="flex items-center gap-3">
+              </motion.div >
+
+
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, easeIn, delay: 0.1 }}
+              
+              className="flex items-center gap-3">
                 <Mail size={18} />
                 <p>{info.email}</p>
-              </div>
-              <div className="flex items-center gap-3">
+              </motion.div >
+              
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, easeIn, delay: 0.1 }}
+              
+              
+              className="flex items-center gap-3">
                 <MapPin size={18} />
                 <p>{info.address}</p>
-              </div>
+              </motion.div >
             </div>
           </div>
 
           {/* NAV */}
           <div>
             <p className="text-xs tracking-widest uppercase text-secondary-light mb-5">
-              Explore
+              <SplitTextReveal>Explore</SplitTextReveal>
             </p>
 
             <nav className="flex flex-col gap-2">
@@ -75,7 +95,7 @@ export default function Footer({ name }: { name: string }) {
                   href={href}
                   className="text-lg sm:text-2xl hover:text-secondary-light transition"
                 >
-                  {label}
+                  <SplitTextReveal>{label}</SplitTextReveal>
                 </Link>
               ))}
             </nav>
@@ -84,7 +104,7 @@ export default function Footer({ name }: { name: string }) {
           {/* SOCIAL */}
           <div>
             <p className="text-xs tracking-widest uppercase text-secondary-light mb-5">
-              Socials
+              <SplitTextReveal>Socials</SplitTextReveal>
             </p>
 
             <div className="flex flex-col gap-3">
@@ -94,7 +114,7 @@ export default function Footer({ name }: { name: string }) {
                   href={value}
                   className="text-lg sm:text-lg uppercase tracking-wide hover:text-secondary-light transition"
                 >
-                  {label}
+                  <SplitTextReveal>{label}</SplitTextReveal>
                 </Link>
               ))}
             </div>
@@ -106,25 +126,26 @@ export default function Footer({ name }: { name: string }) {
           {info.hours.map(({ label, days, value }) => (
             <div key={label} className="min-w-[140px]">
               <p className="text-brand font-display font-bold text-lg">
-                {label}
+                <SplitTextReveal>
+                {label}</SplitTextReveal>
               </p>
 
               {days && (
-                <p className="text-base text-brand font-semibold">{days}</p>
+                <p className="text-base text-brand font-semibold"><SplitTextReveal>{days}</SplitTextReveal></p>
               )}
 
-              <p className="text-base text-brand">{value}</p>
+              <p className="text-base text-brand"> <SplitTextReveal>{value}</SplitTextReveal></p>
             </div>
           ))}
         </div>
 
         {/* BOTTOM BAR */}
         <div className="pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-sm">
-          <p className="text-stone-400">
+          <p className="text-secondary-light">
             © {year} {name}. All rights reserved.
           </p>
 
-          <p className="text-stone-400">
+          <p className="text-stone-25">
             Built with <span className="text-secondary-light">♥</span> by{" "}
             <a
               href="https://rayso.studio"

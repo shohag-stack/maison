@@ -6,6 +6,10 @@ _id,
     name,
     description,
     price,
+    thumbnail{
+    asset->{
+      url
+    }},
     dietary
   }
 }`

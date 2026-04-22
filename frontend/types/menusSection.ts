@@ -10,5 +10,10 @@ interface Items {
     name: string,
     description: string,
     price: string, 
+    thumbnail: {
+        asset: {
+            url: string
+        }
+    },
     dietary: string[],
 }

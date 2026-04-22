@@ -10,7 +10,11 @@ const nextConfig: NextConfig = {
       },
       {
         hostname: "cdn.sanity.io"
+      },
+      {
+        hostname: 'www.lummi.ai'
       }
+
     ]
   }
 
