@@ -1,10 +1,9 @@
 'use client'
 import Link from "next/link";
 import { info, navLinks } from "@/data/footer";
-import Image from "next/image";
 import { Mail, MapPin, Phone } from "lucide-react";
 import SplitTextReveal from "@/components/lenis/SplitTextReveal"
-import {easeIn, motion} from "framer-motion"
+import {motion} from "framer-motion"
 
 export default function Footer({ name }: { name: string }) {
   const year = new Date().getFullYear();
