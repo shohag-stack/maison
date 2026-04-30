@@ -82,8 +82,8 @@ export default function RaysoCta() {
         href="https://rayso.studio/"
         className="group relative flex justify-center items-center text-[14px] px-4 py-2 rounded-full font-bold text-neutral-900 bg-lime-400"
       >
-        <div className='h-[1em] overflow-hidden'>
-            <div className="flex gap-4 flex-col transition-transform duration-300 ease-out group-hover:-translate-y-1/2">
+        <div className='h-[1.5em] overflow-hidden'>
+            <div className="flex gap-1 items-center justify-center flex-col transition-transform duration-300 ease-out group-hover:-translate-y-1/2">
             <span className='flex items-center justify-center'>Get this Template</span>
             <span className='flex items-center justify-center'>Get this Template</span>
         </div>
