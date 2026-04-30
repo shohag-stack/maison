@@ -6,18 +6,19 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
-        hostname: "images.unsplash.com"
+        hostname: "images.unsplash.com",
       },
       {
-        hostname: "cdn.sanity.io"
+        hostname: "cdn.sanity.io",
       },
       {
-        hostname: 'www.lummi.ai'
-      }
-
-    ]
+        hostname: "www.lummi.ai",
+      },
+      {
+        hostname: "res.cloudinary.com",
+      },
+    ],
   },
-
 };
 
 export default nextConfig;
